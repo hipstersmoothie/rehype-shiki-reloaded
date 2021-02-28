@@ -26,9 +26,6 @@ aliases:
   - &yarn
     name: Install Dependencies
     command: yarn install --frozen-lockfile --non-interactive --cache-folder=~/.cache/yarn
-  - &test
-    name: Test
-    command: yarn test
   - &build
     name: Build
     command: yarn build
@@ -57,16 +54,6 @@ jobs:
           paths:
             - .
 
-  test:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/rehype-shiki-reloaded
-      - run: *test
-      - run:
-          name: Send CodeCov Results
-          command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_KEY
-
   release:
     <<: *defaults
     steps:
@@ -87,10 +74,6 @@ workflows:
           requires:
             - install
 
-      - test:
-          requires:
-            - build
-
       - release:
           requires:
-            - test
+            - build

@@ -8,7 +8,6 @@
   ],
   "scripts": {
     "format": "prettier --write '**/*.js' && xo --fix",
-    "test": "xo",
     "build": "tsc",
     "release": "auto shipit"
   },
@@ -34,11 +33,6 @@
   "devDependencies": {
     "auto": "^10.16.8",
     "prettier": "^2.2.1",
-    "typescript": "^4.1.5",
-    "xo": "^0.32.1"
-  },
-  "xo": {
-    "prettier": true,
-    "esnext": false
+    "typescript": "^4.1.5"
   }
 }
