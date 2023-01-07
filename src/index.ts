@@ -1,5 +1,4 @@
 import * as shiki from "shiki";
-import { BUNDLED_LANGUAGES } from "shiki-languages";
 import { Node } from "unist";
 import visit from "unist-util-visit";
 import hastToString from "hast-util-to-string";
@@ -110,7 +109,7 @@ function highlightBlock(
 
 async function getTheme(theme: Theme) {
   return typeof theme === "string"
-    ? shiki.BUNDLED_THEMES.includes(theme)
+    ? shiki.BUNDLED_THEMES.includes(theme as shiki.Theme)
       ? theme
       : shiki.loadTheme(theme)
     : theme;
@@ -124,7 +123,7 @@ async function getHighlighter(
 
   return shiki.getHighlighter({
     theme: loadedTheme,
-    langs: [...BUNDLED_LANGUAGES, ...langs],
+    langs: [...shiki.BUNDLED_LANGUAGES, ...langs],
   });
 }
 
