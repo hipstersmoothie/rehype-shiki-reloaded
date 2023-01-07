@@ -1,7 +1,7 @@
 {
   "name": "rehype-shiki-reloaded",
   "version": "0.0.10",
-  "description": "Rehype plugin to highlight code blocks with shiki, with dark mode!",
+  "description": "Rehype plugin to highlight code blocks with shiki, with dark mode.",
   "main": "./dist/index.js",
   "files": [
     "dist"
